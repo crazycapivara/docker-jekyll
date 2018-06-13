@@ -4,7 +4,7 @@ ENV SITE_NAME "bender-blog"
 
 LABEL maintainer="Stefan Kuethe <crazycapivara@gmail.com>"
 
-RUN apk add --no-cache build-base gcc bash cmake
+RUN apk add --no-cache build-base gcc cmake bash git
 
 RUN gem install jekyll bundler
 
