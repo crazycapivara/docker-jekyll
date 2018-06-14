@@ -5,6 +5,6 @@ services:
       build: .
       ports:
          - "14000:4000"
-      volumes:
-         - ./blog:/blog
+      #volumes:
+      #   - ./blog:/blog
 

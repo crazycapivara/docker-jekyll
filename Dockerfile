@@ -17,5 +17,12 @@ RUN bundle install && jekyll build
 
 EXPOSE 4000
 
-CMD ["jekyll", "serve", "-H", "0.0.0.0"]
+COPY ./scripts/runthat /etc/periodic/15min/runthat
+
+COPY ./docker-entrypoint.sh /docker-entrypoint.sh
+
+#RUN /docker-entrypoint.sh
+ENTRYPOINT ["/docker-entrypoint.sh"]
+
+CMD ["jekyll", "serve", "--skip-initial-build", "-H", "0.0.0.0"]
 
