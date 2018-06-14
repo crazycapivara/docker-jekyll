@@ -1,10 +1,10 @@
 FROM ruby:2.4-alpine
 
-ENV SITE_NAME "bender-blog"
+ENV SITE_NAME "blog"
 
 LABEL maintainer="Stefan Kuethe <crazycapivara@gmail.com>"
 
-RUN apk add --no-cache build-base gcc cmake bash git
+RUN apk add --no-cache build-base gcc cmake bash git dcron
 
 RUN gem install jekyll bundler
 
