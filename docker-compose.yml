@@ -1,0 +1,8 @@
+version: "2"
+
+services:
+   jekyll:
+      build: .
+      ports:
+         - "14000:4000"
+
