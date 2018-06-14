@@ -8,11 +8,12 @@ RUN apk add --no-cache build-base gcc cmake bash git dcron
 
 RUN gem install jekyll bundler
 
-RUN jekyll new $SITE_NAME
+#RUN jekyll new $SITE_NAME
+COPY ./blog $SITE_NAME
 
 WORKDIR $SITE_NAME
 
-RUN jekyll build
+RUN bundle install && jekyll build
 
 EXPOSE 4000
 
