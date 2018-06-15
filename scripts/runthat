@@ -1,7 +1,0 @@
-#!/bin/sh
-
-REPOSITORY="docker-jekyll"
-
-git -C /$SITE_NAME/$REPOSITORY pull origin feature/blog
-jekyll build -s /$SITE_NAME/$REPOSITORY/blog -d /$SITE_NAME/_site
-
