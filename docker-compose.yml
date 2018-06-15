@@ -5,6 +5,8 @@ services:
       build: .
       ports:
          - "14000:4000"
-      #volumes:
-      #   - ./blog:/blog
+      environment:
+         - REPOSITORY=https://github.com/crazycapivara/docker-jekyll.git
+         - BRANCH=feature/blog
+      command: jekyll serve -s /blog/blog -H 0.0.0.0
 

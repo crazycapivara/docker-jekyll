@@ -1,13 +1,14 @@
 #!/bin/sh
 
-run-parts $INIT_FOLDER
+BRANCH=${BRANCH:-master}
 
-#echo $EXAMPLE_SITE
-#git clone https://github.com/crazycapivara/docker-jekyll.git --branch feature/blog
-#jekyll build -s /blog/docker-jekyll/blog -d /blog/_site
-#jekyll build -s /blog/docker-jekyll/blog -d /blog/_site
-crond
-#cd /blog/docker-jekyll/blog
-#exec "$@"
-#jekyll server -s $EXAMPLE_SITE -H 0.0.0.0
+if [ $REPOSITORY ]; then
+        git clone $REPOSITORY --branch $BRANCH .
+	cp /etc/periodic/_drafts/pullandbuild /etc/periodic/1min
+	crond
+else
+        echo "Nothing to do!"
+fi
+
+exec "$@"
 
