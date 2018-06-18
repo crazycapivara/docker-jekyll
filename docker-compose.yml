@@ -5,8 +5,21 @@ services:
       build: .
       ports:
          - "14000:4000"
+      volumes:
+         - "jekyll-data:/jekyll-site"
       environment:
          - REPOSITORY=https://github.com/crazycapivara/docker-jekyll.git
          - BRANCH=feature/blog
-      command: jekyll serve -s /blog/blog -H 0.0.0.0
+      #command: jekyll serve -s /blog/blog -H 0.0.0.0
+      command: ruby /webhook/server.rb
+
+   nginx:
+      image: nginx:alpine
+      ports:
+         - "14001:80"
+      volumes:
+         - "jekyll-data:/usr/share/nginx/html:ro"
+
+volumes:
+   jekyll-data:
 
