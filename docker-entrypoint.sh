@@ -5,7 +5,7 @@ BRANCH=${BRANCH:-master}
 if [ $REPOSITORY ]; then
         git clone $REPOSITORY --branch $BRANCH .
 	cp /etc/periodic/_drafts/pullandbuild /etc/periodic/1min
-	crond
+	#crond
 else
         echo "Nothing to do!"
 fi
