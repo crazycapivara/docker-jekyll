@@ -38,6 +38,6 @@ COPY ./docker-entrypoint.sh /docker-entrypoint.sh
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
-CMD ["ruby", "/webhook/server.sh"]
+CMD ["ruby", "/webhook/server.rb"]
 #CMD ["sh", "-c", "jekyll serve -s $EXAMPLE_SITE -H 0.0.0.0"]
 
