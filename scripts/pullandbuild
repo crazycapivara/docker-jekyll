@@ -1,0 +1,6 @@
+#!/bin/ash
+
+git -C $SITE pull
+jekyll build -s $SITE/blog -d $SITE/_site
+echo $(date) >> /cronthat.logs
+
